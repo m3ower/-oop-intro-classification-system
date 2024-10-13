@@ -14,7 +14,4 @@ public class Input {
         this.traits = traits;
     }
 
-    void universe1() {
-        System.out.println(this.id + " is from universe1");
-    }
 }

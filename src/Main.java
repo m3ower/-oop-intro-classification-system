@@ -2,9 +2,11 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Input alien1 = new Input(5, true, "Terra", 15, "Small and fat");
+    String filename = "./filesdoc/input.json";
+        String jsonData = Json.getJSONFromFile(filename);
 
-        System.out.println(alien1.id);
-        alien1.universe1();
+        System.out.println("JSON file:");
+        System.out.println(jsonData);
+
     }
 }
