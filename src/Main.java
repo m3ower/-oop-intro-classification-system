@@ -7,5 +7,7 @@ public class Main {
         Container inputContainer = Json.parseJSONToInputContainer(json);
 
         Json.displayInputs(inputContainer);
+
+        inputContainer.displayHumanoids();
     }
 }
