@@ -1,12 +1,11 @@
-import org.json.simple.JSONObject;
-
 public class Main {
     public static void main(String[] args) {
         String filename = "./filesdoc/input.json";
 
-        String jsonData = Json.getJSONFromFile(filename);
+        String json = Json.getJSONFromFile(filename);
 
-        System.out.println("JSON Data:");
-        System.out.println(jsonData);
+        Container inputContainer = Json.parseJSONToInputContainer(json);
+
+        Json.displayInputs(inputContainer);
     }
 }
