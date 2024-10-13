@@ -34,29 +34,41 @@ public class Json {
             JSONArray inputArray = (JSONArray) jsonObject.get("input");
 
             for (Object obj : inputArray) {
-                JSONObject entry = (JSONObject) obj;
+                try {
+                    JSONObject entry = (JSONObject) obj;
 
-                long id = (long) entry.get("id");
-                boolean isHumanoid = entry.get("isHumanoid") != null && (boolean) entry.get("isHumanoid");
-                String planet = (String) entry.get("planet");
-                Integer age = entry.get("age") != null ? (int) (long) entry.get("age") : -1;
-                JSONArray traits = (JSONArray) entry.get("traits");
+                    long id = (long) entry.get("id");
+                    boolean isHumanoid = entry.containsKey("isHumanoid") && (boolean) entry.get("isHumanoid");
+                    String planet = (String) entry.get("planet");
 
-                List<String> traitsList = new ArrayList<>();
-                if (traits != null) {
-                    for (Object trait : traits) {
-                        traitsList.add((String) trait);
+                    Integer age = null;
+                    if (entry.containsKey("age")) {
+                        Object ageValue = entry.get("age");
+                        if (ageValue != null) {
+                            age = ((Long) ageValue).intValue();
+                        }
                     }
-                }
 
-                Input input = new Input(
-                        (int) id,
-                        isHumanoid,
-                        planet,
-                        age,
-                        traitsList
-                );
-                inputContainer.addInput(input);
+                    JSONArray traits = (JSONArray) entry.get("traits");
+
+                    List<String> traitsList = new ArrayList<>();
+                    if (traits != null) {
+                        for (Object trait : traits) {
+                            traitsList.add((String) trait);
+                        }
+                    }
+
+                    Input input = new Input(
+                            (int) id,
+                            isHumanoid,
+                            planet,
+                            age,
+                            traitsList
+                    );
+                    inputContainer.addInput(input);
+                } catch (Exception e) {
+                    System.out.println("Error processing entry: " + e.getMessage());
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,15 +77,13 @@ public class Json {
         return inputContainer;
     }
 
-    public static void displayInputs(Container inputContainer) {
-        inputContainer.displayInputs();
-    }
-
     public static void main(String[] args) {
         String filename = "./filesdoc/input.json";
-        String json = getJSONFromFile(filename);
-        Container inputContainer = parseJSONToInputContainer(json);
-        displayInputs(inputContainer);
 
+        String json = getJSONFromFile(filename);
+
+        Container inputContainer = parseJSONToInputContainer(json);
+
+        inputContainer.displayInputs();
     }
 }

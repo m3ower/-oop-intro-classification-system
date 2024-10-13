@@ -3,12 +3,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Classifing {
+class Classifying {
     private boolean isHumanoid;
     private String planet;
     private Integer ageMin;
     private Integer ageMax;
     private List<String> traits;
+
+    public Classifying(boolean isHumanoid, String planet, Integer ageMin, Integer ageMax, List<String> traits) {
+        this.isHumanoid = isHumanoid;
+        this.planet = planet;
+        this.ageMin = ageMin;
+        this.ageMax = ageMax;
+        this.traits = traits;
+    }
 
     public boolean isHumanoid() {
         return isHumanoid;
@@ -50,90 +58,27 @@ class Classifing {
         this.traits = traits;
     }
 
-    public static Map<String, List<Classifing>> getAllSpecies() {
-        Map<String, List<Classifing>> speciesMap = new HashMap<>();
+    public static Map<String, List<Classifying>> getAllSpecies() {
+        Map<String, List<Classifying>> speciesMap = new HashMap<>();
 
-        List<Classifing> starWarsSpecies = new ArrayList<>();
-        starWarsSpecies.add(new Classifing() {{
-            setHumanoid(false);
-            setPlanet("Kashyyyk");
-            setAgeMin(0);
-            setAgeMax(400);
-            setTraits(new ArrayList<>() {{
-                add("HAIRY");
-                add("TALL");
-            }});
-        }});
-        starWarsSpecies.add(new Classifing() {{
-            setHumanoid(false);
-            setPlanet("Endor");
-            setAgeMin(0);
-            setAgeMax(60);
-            setTraits(new ArrayList<>() {{
-                add("SHORT");
-                add("HAIRY");
-            }});
-        }});
-        speciesMap.put("Star Wars", starWarsSpecies);
+        speciesMap.put("Star Wars", List.of(
+                new Classifying(false, "Kashyyyk", 0, 400, List.of("HAIRY", "TALL")),
+                new Classifying(false, "Endor", 0, 60, List.of("SHORT", "HAIRY"))
+        ));
 
-        List<Classifing> marvelSpecies = new ArrayList<>();
-        marvelSpecies.add(new Classifing() {{
-            setHumanoid(true);
-            setPlanet("Asgard");
-            setAgeMin(0);
-            setAgeMax(5000);
-            setTraits(new ArrayList<>() {{
-                add("BLONDE");
-                add("TALL");
-            }});
-        }});
-        speciesMap.put("Marvel", marvelSpecies);
+        speciesMap.put("Marvel", List.of(
+                new Classifying(true, "Asgard", 0, 5000, List.of("BLONDE", "TALL"))
+        ));
 
-        List<Classifing> hitchhikerSpecies = new ArrayList<>();
-        hitchhikerSpecies.add(new Classifing() {{
-            setHumanoid(true);
-            setPlanet("Betelgeuse");
-            setAgeMin(0);
-            setAgeMax(100);
-            setTraits(new ArrayList<>() {{
-                add("EXTRA_ARMS");
-                add("EXTRA_HEAD");
-            }});
-        }});
-        hitchhikerSpecies.add(new Classifing() {{
-            setHumanoid(false);
-            setPlanet("Vogsphere");
-            setAgeMin(0);
-            setAgeMax(200);
-            setTraits(new ArrayList<>() {{
-                add("GREEN");
-                add("BULKY");
-            }});
-        }});
-        speciesMap.put("Hitchhiker", hitchhikerSpecies);
+        speciesMap.put("Hitchhiker", List.of(
+                new Classifying(true, "Betelgeuse", 0, 100, List.of("EXTRA_ARMS", "EXTRA_HEAD")),
+                new Classifying(false, "Vogsphere", 0, 200, List.of("GREEN", "BULKY"))
+        ));
 
-        List<Classifing> lordOfTheRingsSpecies = new ArrayList<>();
-        lordOfTheRingsSpecies.add(new Classifing() {{
-            setHumanoid(true);
-            setPlanet("Earth");
-            setAgeMin(null);
-            setAgeMax(null);
-            setTraits(new ArrayList<>() {{
-                add("BLONDE");
-                add("POINTY_EARS");
-            }});
-        }});
-        lordOfTheRingsSpecies.add(new Classifing() {{
-            setHumanoid(true);
-            setPlanet("Earth");
-            setAgeMin(0);
-            setAgeMax(200);
-            setTraits(new ArrayList<>() {{
-                add("SHORT");
-                add("BULKY");
-            }});
-        }});
-        speciesMap.put("LOTR", lordOfTheRingsSpecies);
+        speciesMap.put("LOTR", List.of(
+                new Classifying(true, "Earth", null, null, List.of("BLONDE", "POINTY_EARS")),
+                new Classifying(true, "Earth", 0, 200, List.of("SHORT", "BULKY"))
+        ));
 
         return speciesMap;
     }

@@ -3,12 +3,12 @@ import java.util.List;
 public class Input {
 
     int id;
-    boolean isHumanoid;
+    Boolean isHumanoid;
     String planet;
-    int age;
+    Integer age;
     List<String> traits;
 
-    Input(int id, boolean isHumanoid, String planet, int age, List<String> traits) {
+    Input(int id, Boolean isHumanoid, String planet, Integer age, List<String> traits) {
         this.id = id;
         this.isHumanoid = isHumanoid;
         this.planet = planet;
@@ -20,7 +20,7 @@ public class Input {
         return id;
     }
 
-    public boolean isHumanoid() {
+    public Boolean isHumanoid() {
         return isHumanoid;
     }
 
@@ -28,7 +28,7 @@ public class Input {
         return planet;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
