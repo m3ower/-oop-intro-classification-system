@@ -38,7 +38,10 @@ public class Json {
                     JSONObject entry = (JSONObject) obj;
 
                     long id = (long) entry.get("id");
-                    boolean isHumanoid = entry.containsKey("isHumanoid") && (boolean) entry.get("isHumanoid");
+                    Boolean isHumanoid = null; // Change type to Boolean
+                    if (entry.containsKey("isHumanoid")) {
+                        isHumanoid = (boolean) entry.get("isHumanoid");
+                    }
                     String planet = (String) entry.get("planet");
 
                     Integer age = null;
@@ -60,7 +63,7 @@ public class Json {
 
                     Input input = new Input(
                             (int) id,
-                            isHumanoid,
+                            isHumanoid, // Keep it as Boolean
                             planet,
                             age,
                             traitsList
