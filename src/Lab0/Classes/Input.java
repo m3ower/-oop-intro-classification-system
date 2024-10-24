@@ -1,3 +1,5 @@
+package Lab0.Classes;
+
 import java.util.List;
 
 public class Input {

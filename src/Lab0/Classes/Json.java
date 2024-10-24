@@ -1,3 +1,5 @@
+package Lab0.Classes;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

@@ -1,3 +1,5 @@
+package Lab0.Classes;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
