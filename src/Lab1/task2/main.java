@@ -20,11 +20,11 @@ public class main {
             textData.setFileName(filePath);
 
             System.out.println(textData.getFileName());
-            System.out.println(textData.getNumberOfVowels());
-            System.out.println(textData.getNumberOfConsonants());
-            System.out.println(textData.getNumberOfLetters());
-            System.out.println(textData.getNumberOfSentences());
-            System.out.println(textData.getLongestWord());
+            System.out.println("Number of vowels: " + textData.getNumberOfVowels());
+            System.out.println("Number of consonants: " + textData.getNumberOfConsonants());
+            System.out.println("Number of letters: " + textData.getNumberOfLetters());
+            System.out.println("Number of sentences: " + textData.getNumberOfSentences());
+            System.out.println("Longest word: " + textData.getLongestWord());
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file: " + e.getMessage());
         }
