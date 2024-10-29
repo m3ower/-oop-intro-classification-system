@@ -16,6 +16,5 @@ public class main {
         assistant.assist();
 
         assistant.buyDisplay(display_1);
-        return d;
     }
 }

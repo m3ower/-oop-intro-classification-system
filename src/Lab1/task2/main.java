@@ -11,22 +11,23 @@ public class main {
             System.out.println("Only the first file will be processed; See Task4 for multiple input files");
         }
 
-        String filePath = args[0];
-        String text;
+        for (String filePath : args) {
+            String text;
 
-        try {
-            text = FileReader.readFileIntoString(filePath);
-            TextData textData = new TextData(text);
-            textData.setFileName(filePath);
+            try {
+                text = FileReader.readFileIntoString(filePath);
+                TextData textData = new TextData(text);
+                textData.setFileName(filePath);
 
-            System.out.println(textData.getFileName());
-            System.out.println("Number of vowels: " + textData.getNumberOfVowels());
-            System.out.println("Number of consonants: " + textData.getNumberOfConsonants());
-            System.out.println("Number of letters: " + textData.getNumberOfLetters());
-            System.out.println("Number of sentences: " + textData.getNumberOfSentences());
-            System.out.println("Longest word: " + textData.getLongestWord());
-        } catch (IOException e) {
-            System.out.println("An error occurred while reading the file: " + e.getMessage());
+                System.out.println(textData.getFileName());
+                System.out.println("Number of vowels: " + textData.getNumberOfVowels());
+                System.out.println("Number of consonants: " + textData.getNumberOfConsonants());
+                System.out.println("Number of letters: " + textData.getNumberOfLetters());
+                System.out.println("Number of sentences: " + textData.getNumberOfSentences());
+                System.out.println("Longest word: " + textData.getLongestWord());
+            } catch (IOException e) {
+                System.out.println("An error occurred while reading the file: " + e.getMessage());
+            }
         }
     }
 }
