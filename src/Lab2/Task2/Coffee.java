@@ -1,6 +1,6 @@
-package Lab2.Task1;
+package Lab2.Task2;
 
-public class Coffee {
+public abstract class Coffee {
     private final Intensity coffeeIntensity;
     private static final String name = "Coffee";
 
@@ -10,5 +10,9 @@ public class Coffee {
 
     public String getName() {
         return name;
+    }
+
+    public void printCoffeeDetails() {
+        System.out.println("Coffee intensity: " + coffeeIntensity);
     }
 }
