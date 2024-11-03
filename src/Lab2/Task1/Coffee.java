@@ -1,7 +1,7 @@
 package Lab2.Task1;
 
 public abstract class Coffee {
-    private Intensity coffeeIntensity;
+    private final Intensity coffeeIntensity;
     private static final String name = "Coffee";
 
     protected Coffee(Intensity coffeeIntensity) {
@@ -12,4 +12,3 @@ public abstract class Coffee {
         return name;
     }
 }
-
