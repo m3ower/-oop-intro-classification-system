@@ -1,6 +1,6 @@
-package Lab2.Task4.coffeeshop.core;
+package Lab2.Task4.coffeeshop;
 
-protected class PumpkinSpiceLatte extends Cappuccino {
+class PumpkinSpiceLatte extends Cappuccino {
     private Integer mgOfPumpkinSpice;
     private static final String NAME = "PumpkinSpiceLatte";
 
@@ -29,5 +29,13 @@ protected class PumpkinSpiceLatte extends Cappuccino {
         System.out.println("Making " + newPumpkinSpiceLatte.getName());
         System.out.println("Adding " + mgOfPumpkinSpice + " mg of pumpkin spice");
         return newPumpkinSpiceLatte;
+    }
+
+    @Override
+    public String toString() {
+        return "PumpkinSpiceLatte " +
+                "with milk: " + getMlOfMilk() +
+                " ml and intensity " + coffeeIntensity +
+                " and mg PumpkinSpice: " + mgOfPumpkinSpice;
     }
 }

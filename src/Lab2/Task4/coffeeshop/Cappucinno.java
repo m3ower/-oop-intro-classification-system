@@ -1,4 +1,4 @@
-package Lab2.Task4.coffeeshop.core;
+package Lab2.Task4.coffeeshop;
 
 class Cappuccino extends Coffee {
     private Integer mlOfMilk;
@@ -29,5 +29,12 @@ class Cappuccino extends Coffee {
         System.out.println("Making " + newCappuccino.getName());
         System.out.println("Adding " + mlOfMilk + " mls of milk");
         return newCappuccino;
+    }
+
+    @Override
+    public String toString() {
+        return "Cappuccino with " +
+                "milk: " + mlOfMilk +
+                " ml and intensity " + coffeeIntensity;
     }
 }

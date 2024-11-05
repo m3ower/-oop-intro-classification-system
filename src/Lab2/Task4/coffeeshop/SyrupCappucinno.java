@@ -1,4 +1,4 @@
-package Lab2.Task4.coffeeshop.core;
+package Lab2.Task4.coffeeshop;
 
 
 class SyrupCappuccino extends Cappuccino {
@@ -30,5 +30,12 @@ class SyrupCappuccino extends Cappuccino {
         System.out.println("Making " + newSyrupCappuccino.getName());
         System.out.println("Adding " + syrup + " syrup");
         return newSyrupCappuccino;
+    }
+    @Override
+    public String toString() {
+        return "SyrupCappuccino with " +
+                "milk: " + getMlOfMilk() +
+                " ml and intensity " + coffeeIntensity +
+                " with syrup of " + syrup;
     }
 }

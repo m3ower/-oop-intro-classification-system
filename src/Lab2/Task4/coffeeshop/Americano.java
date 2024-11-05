@@ -1,4 +1,4 @@
-package Lab2.Task4.coffeeshop.core;
+package Lab2.Task4.coffeeshop;
 
 
 class Americano extends Coffee {
@@ -30,5 +30,12 @@ class Americano extends Coffee {
         System.out.println("Making " + newAmericano.getName());
         System.out.println("Adding " + mlOfWater + " mls of water");
         return newAmericano;
+    }
+
+    @Override
+    public String toString() {
+        return "Americano " +
+                " with ml of water:" + mlOfWater +
+                " and intensity " + coffeeIntensity;
     }
 }

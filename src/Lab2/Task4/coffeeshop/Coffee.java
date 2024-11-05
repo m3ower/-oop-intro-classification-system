@@ -1,4 +1,4 @@
-package Lab2.Task4.coffeeshop.core;
+package Lab2.Task4.coffeeshop;
 
 enum Intensity {
     LIGHT, NORMAL, STRONG
@@ -28,4 +28,6 @@ class Coffee {
         System.out.println("Coffee name: " + getName());
         System.out.println("Coffee intensity: " + getIntensity());
     }
+
 }
+
