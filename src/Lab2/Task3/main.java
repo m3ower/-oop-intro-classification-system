@@ -9,8 +9,11 @@ public class main {
 
         System.out.println();
         cappuccino.printDetails();
+        System.out.println();
         americano.printDetails();
+        System.out.println();
         syrupCappuccino.printDetails();
+        System.out.println();
         psl.printDetails();
     }
 }
