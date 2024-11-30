@@ -40,22 +40,45 @@ public class CarStation {
         }
     }
 
+    public IDineable getDiningService() {
+        return diningService;
+    }
+
+    public IRefuelable getRefuelingService() {
+        return refuelingService;
+    }
+
     public void addCar(Car car) {
-        if ((car.isElectric() && stationType != StationType.ELECTRIC) ||
-                (!car.isElectric() && stationType != StationType.GAS) ||
-                (car.isRobot() && dinerType != DinerType.ROBOT) ||
-                (!car.isRobot() && dinerType != DinerType.HUMAN)) {
+        if ((car.getIsElectric() && stationType != StationType.ELECTRIC) ||
+                (!car.getIsElectric() && stationType != StationType.GAS) ||
+                (car.getIsRobot() && dinerType != DinerType.ROBOT) ||
+                (!car.getIsRobot() && dinerType != DinerType.HUMAN)) {
             throw new IllegalArgumentException("Car type incompatible with station");
         }
         queue.enqueue(car);
+        System.out.println("Car " + car.getId() + " joined the queue at " + stationType + " " + dinerType + " station");
     }
+
     public void serveCars() {
+        System.out.println("\nServing cars at " + stationType + " " + dinerType + " station:");
+        System.out.println("Current queue size: " + queue.size() + " cars");
+
         while (!queue.isEmpty()) {
             Car car = queue.dequeue();
-            if (car.needsDinner()) {
+            System.out.println("\nServing car: " + car.getId());
+            System.out.println("Cars remaining in queue: " + queue.size());
+
+            if (car.getNeedsDinner()) {
+                System.out.println("- Serving dinner to car " + car.getId());
                 diningService.serveDinner(car.getId());
+            } else {
+                System.out.println("- Car " + car.getId() + " doesn't need dinner");
             }
+
+            System.out.println("- Refueling car " + car.getId());
             refuelingService.refuel(car.getId());
+            System.out.println("Car " + car.getId() + " has been fully served and is leaving");
         }
+        System.out.println("No more cars in queue!\n");
     }
 }

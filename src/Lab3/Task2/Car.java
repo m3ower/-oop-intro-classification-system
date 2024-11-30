@@ -1,11 +1,15 @@
 package Lab3.Task2;
 
 public class Car {
-    private final String id;
-    private final boolean needsDinner;
-    private final boolean isElectric;
-    private final boolean isRobot;
+    private String id;
+    private boolean needsDinner;
+    private boolean isElectric;
+    private boolean isRobot;
 
+    // Default constructor needed for Jackson
+    public Car() {}
+
+    // Constructor
     public Car(String id, boolean needsDinner, boolean isElectric, boolean isRobot) {
         this.id = id;
         this.needsDinner = needsDinner;
@@ -13,14 +17,16 @@ public class Car {
         this.isRobot = isRobot;
     }
 
-    public boolean isElectric() { return isElectric; }
-    public boolean isRobot() { return isRobot; }
+    // Getters and setters needed for Jackson
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public String getId() {
-        return id;
-    }
+    public boolean getNeedsDinner() { return needsDinner; }
+    public void setNeedsDinner(boolean needsDinner) { this.needsDinner = needsDinner; }
 
-    public boolean needsDinner() {
-        return needsDinner;
-    }
+    public boolean getIsElectric() { return isElectric; }
+    public void setIsElectric(boolean isElectric) { this.isElectric = isElectric; }
+
+    public boolean getIsRobot() { return isRobot; }
+    public void setIsRobot(boolean isRobot) { this.isRobot = isRobot; }
 }
