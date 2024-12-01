@@ -65,20 +65,14 @@ public class CarStation {
 
         while (!queue.isEmpty()) {
             Car car = queue.dequeue();
-            System.out.println("\nServing car: " + car.getId());
+            String carId = car.getId();
+            System.out.println("\nServing car: " + carId);
             System.out.println("Cars remaining in queue: " + queue.size());
 
             if (car.getNeedsDinner()) {
-                System.out.println("- Serving dinner to car " + car.getId());
-                diningService.serveDinner(car.getId());
-            } else {
-                System.out.println("- Car " + car.getId() + " doesn't need dinner");
+                diningService.serveDinner(carId);
             }
-
-            System.out.println("- Refueling car " + car.getId());
-            refuelingService.refuel(car.getId());
-            System.out.println("Car " + car.getId() + " has been fully served and is leaving");
+            refuelingService.refuel(carId);
         }
-        System.out.println("No more cars in queue!\n");
     }
 }
